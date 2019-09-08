@@ -29,45 +29,24 @@ public class Main {
             return board;
         }else {
             if (board[randomRow][randomColumn] == 0) {
-                board[randomRow][randomColumn] = -1;
 
-                for (int i = 1; i <= board[randomRow].length-1; i++) {
-                    for (int j = 1; j <= board[randomColumn].length-1; j++) {
-                        if (!(board[randomRow][j] == -1)) {
-                            board[randomRow][j] = 1;
-                        }
-
-                        if (!(board[j][randomColumn] == -1)) {
-                            board[j][randomColumn] = 1;
-                        }
-                    }
-                }
-                    if (!(board[randomRow + 1][randomColumn + 1] == -1)) {
-                        board[randomRow + 1][randomColumn + 1] = 1;
-                    }
-                    if (!(board[randomRow + 1][randomColumn - 1] == -1)) {
-                        board[randomRow + 1][randomColumn - 1] = 1;
-                    }
-                    if (!(board[randomRow - 1][randomColumn + 1] == -1)) {
-                        board[randomRow - 1][randomColumn + 1] = 1;
-                    }
-                    if (!(board[randomRow - 1][randomColumn - 1] == -1)) {
-                        board[randomRow - 1][randomColumn - 1] = 1;
-                    }
+                addQueens(randomRow,randomColumn,board);
 
 
                 } else if (board[randomRow][randomColumn] == -1 || board[randomRow][randomColumn] == 1) {
+//if all index are full of either 1 or -1 but there is still a queen left, start again.
 
-
-                //if all spaces are filled and there is still a queen, reset.
-                for(int k =0;k<board[randomRow].length;k++){
-                    for (int l = 0;l<board[randomColumn].length;l++){
-                        if(board[randomRow][l]!=0&&board[l][randomColumn]!=0){
-                            board[randomRow][l] =0;
-                            board[l][randomColumn]=0;
+                for (int i = 1; i <= board[randomRow].length-1; i++) {
+                    for (int j = 1; j <= board[randomColumn].length-1; j++) {
+                        if(board[i][j] == -1 || board[i][j] == 1){
+                            continue;
                         }
+
                     }
+
                 }
+
+
 
                 intersection(n,board);
                 }
@@ -79,6 +58,36 @@ public class Main {
 
 
 
+    public static void addQueens(int randomRow,int randomColumn,int [][] board){
 
+
+        board[randomRow][randomColumn] = -1;
+
+        for (int i = 1; i <= board[randomRow].length-1; i++) {
+            for (int j = 1; j <= board[randomColumn].length-1; j++) {
+                if (!(board[randomRow][j] == -1)) {
+                    board[randomRow][j] = 1;
+                }
+
+                if (!(board[j][randomColumn] == -1)) {
+                    board[j][randomColumn] = 1;
+                }
+            }
+        }
+        if (!(board[randomRow + 1][randomColumn + 1] == -1)) {
+            board[randomRow + 1][randomColumn + 1] = 1;
+        }
+        if (!(board[randomRow + 1][randomColumn - 1] == -1)) {
+            board[randomRow + 1][randomColumn - 1] = 1;
+        }
+        if (!(board[randomRow - 1][randomColumn + 1] == -1)) {
+            board[randomRow - 1][randomColumn + 1] = 1;
+        }
+        if (!(board[randomRow - 1][randomColumn - 1] == -1)) {
+            board[randomRow - 1][randomColumn - 1] = 1;
+        }
+    }
 
 }
+
+
