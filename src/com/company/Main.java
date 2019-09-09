@@ -36,15 +36,15 @@ public class Main {
                 } else if (board[randomRow][randomColumn] == -1 || board[randomRow][randomColumn] == 1) {
 //if all index are full of either 1 or -1 but there is still a queen left, start again.
 
-                for (int i = 1; i <= board[randomRow].length-1; i++) {
-                    for (int j = 1; j <= board[randomColumn].length-1; j++) {
-                        if(board[i][j] == -1 || board[i][j] == 1){
-                            continue;
-                        }
-
-                    }
-
-                }
+//                for (int i = 1; i <= board[randomRow].length-1; i++) {
+//                    for (int j = 1; j <= board[randomColumn].length-1; j++) {
+//                        if(board[i][j] == -1 || board[i][j] == 1){
+//                            continue;
+//                        }
+//
+//                    }
+//
+//                }
 
 
 
